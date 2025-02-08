@@ -75,7 +75,10 @@ animateOnScroll(visionMissionContent,"vision-mission-content-visible",0.001);
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  if(window.innerWidth > 1080){
+  
+});
+
+if(window.innerWidth > 1080){
     const title = document.querySelector(".department-name");
   const cursor = document.createElement("div");
 
@@ -106,4 +109,3 @@ document.addEventListener("DOMContentLoaded", () => {
     cursor.style.top = y + "px";
   });
   }
-});

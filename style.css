@@ -47,7 +47,7 @@ header .department-name {
 
 
 header .heading{
-  width: 60vw;
+  width: 70%;
 }
 
 header .heading h5 {
@@ -367,6 +367,14 @@ nav {
       min-height: 70px;
   }
 
+  header .heading{
+    width: 80%;
+  }
+
+  .heading h1{
+    font-size: 45px;
+  }
+
   .vision-mission-div{
     margin-top: 50px;
     flex-direction: column;
@@ -377,7 +385,7 @@ nav {
   }
 
   .vision-mission-content{
-    padding: 20% 6% 10% 10%;
+    padding: 100px 6% 10% 10%;
     width: 90%;
     transform: translatey(20%);
   }
