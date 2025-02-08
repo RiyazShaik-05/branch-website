@@ -23,13 +23,28 @@ header {
     justify-content: center;
     align-items: center;
 }
- 
 
-header .department-name{
-  text-align: center;
-  color: #fff;
-  font-size: clamp(25px,8vw,70px);
+.cursor {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: white;
+  mix-blend-mode: exclusion;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
+  opacity: 0;
 }
+
+header .department-name {
+  text-align: center;
+  position: relative;
+  color: white;
+  font-size: clamp(30px, 8vw, 70px);
+  display: inline-block;
+}
+
 
 header .heading{
   width: 60vw;
@@ -46,7 +61,7 @@ nav {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  background: rgb(235, 126, 110);
+  background: #eb7e6e;
   z-index: 1000;
   position: fixed;
   top: 0;
@@ -382,6 +397,14 @@ nav {
 
 
 @media screen and (max-width: 1080px) {
+
+  .cusror{
+    display: none;
+  }
+
+  .department-name{
+    cursor: default;
+  }
   
 
   .side-logo img{

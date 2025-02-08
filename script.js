@@ -69,3 +69,41 @@ animateOnScroll(visionMissionPhoto, "vision-mission-photo-visible",0.1);
 
 const visionMissionContent = document.querySelector(".vision-mission-content");
 animateOnScroll(visionMissionContent,"vision-mission-content-visible",0.001);
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  if(window.innerWidth > 1080){
+    const title = document.querySelector(".department-name");
+  const cursor = document.createElement("div");
+
+  const cursorSize = 25;
+  const hoverSize = 150;
+
+  cursor.classList.add("cursor");
+  document.body.appendChild(cursor);
+
+  document.addEventListener("mousemove", (e) => {
+    let x = e.clientX;
+    let y = e.clientY;
+
+    const rect = title.getBoundingClientRect();
+    const inTitle = x > rect.left && x < rect.right && y > rect.top && y < rect.bottom;
+
+    if (inTitle) {
+      cursor.style.opacity = "1"; // Show cursor
+      cursor.style.width = hoverSize + "px";
+      cursor.style.height = hoverSize + "px";
+    } else {
+      cursor.style.opacity = "0"; // Hide cursor
+      cursor.style.width = cursorSize + "px";
+      cursor.style.height = cursorSize + "px";
+    }
+
+    cursor.style.left = x + "px";
+    cursor.style.top = y + "px";
+  });
+  }
+});
