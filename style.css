@@ -403,9 +403,6 @@ nav {
 }
 
 /* footer */
-/* footer{
-  background-color: #eb7e6e;
-} */
 
 .above-footer {
   padding-top: 100vh;
@@ -428,12 +425,17 @@ nav {
 }
 
 footer {
-  height: 50vh;
   background: linear-gradient(
     to top,
     rgba(235, 126, 110, 1) 80%,
     rgba(235, 126, 110, 0.988) 20%
   );
+}
+
+
+.route-map-div{
+  position: relative;
+  top: -100px;
 }
 
 @media screen and (max-width: 820px) {
