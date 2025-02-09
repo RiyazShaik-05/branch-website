@@ -163,3 +163,5 @@ function setupScrollableDiv(scrollableSelector) {
 setupScrollableDiv(".peos-content");
 setupScrollableDiv(".po-content");
 
+const h1s = document.querySelectorAll("h1");
+h1s.forEach(h1 => animateOnScroll(h1,"scale-up",0.001));

@@ -23,6 +23,17 @@ header {
   align-items: center;
 }
 
+h1{
+  scale: 0.6;
+  transition: scale 0.2s ease-in-out;
+  will-change: scale;
+}
+
+.scale-up{
+  scale: 1;
+}
+
+
 .cursor {
   position: absolute;
   width: 25px;
@@ -42,7 +53,9 @@ header .department-name {
   color: white;
   font-size: clamp(30px, 8vw, 70px);
   display: inline-block;
+  
 }
+
 
 header .heading {
   width: 70%;
@@ -306,7 +319,6 @@ nav {
 .vision-mission-photo {
   height: 450px;
   width: 40%;
-  /* border-radius: 20px; */
   box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.3);
   position: relative;
   z-index: 1;
@@ -324,7 +336,6 @@ nav {
 .vision-mission-content {
   width: 50%;
   padding: 5% 0 5% 7%;
-  /* border-radius: 20px; */
   box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.3);
   transform: translateX(10%);
   transition: transform 0.5s ease-in-out;
@@ -351,7 +362,6 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* margin: 50px 0 50px 0; */
   margin-bottom: 50px;
 }
 
@@ -408,8 +418,8 @@ nav {
   padding-top: 100vh;
   width: 100%;
   height: 100vh;
-  min-height: fit-content; /* Adjusts height to content */
-  padding: 50px 0; /* Add padding if needed */
+  min-height: fit-content;
+  padding: 50px 0;
   background: linear-gradient(
       to bottom,
       rgba(245, 245, 245, 1) 0%,
@@ -420,11 +430,34 @@ nav {
       rgba(235, 126, 110, 0.9) 20%,
       rgba(231, 190, 110, 0) 40%
     ),
-    url("./images/footer.jpg");
+    url("./images/footer.jpg") center center;
   background-size: cover;
+  
+}
+
+.above-footer {
+  padding-top: 100vh;
+  width: 100%;
+  height: 100vh;
+  min-height: fit-content;
+  padding: 50px 0;
+  background: linear-gradient(
+      to bottom,
+      rgba(245, 245, 245, 1) 0%,
+      rgba(245, 245, 245, 0) 50%
+    ),
+    linear-gradient(
+      to top,
+      rgba(235, 126, 110, 0.9) 20%,
+      rgba(231, 190, 110, 0) 40%
+    ),
+    url("./images/campus.jpg") center center;
+  background-size: cover;
+  
 }
 
 footer {
+  height: fit-content;
   background: linear-gradient(
     to top,
     rgba(235, 126, 110, 1) 80%,
@@ -435,6 +468,10 @@ footer {
 
 .route-map-div{
   transform: translateY(-100px);
+}
+
+footer h5 a:hover{
+  border-bottom: 1px solid yellow;
 }
 
 @media screen and (max-width: 820px) {
