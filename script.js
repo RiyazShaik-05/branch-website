@@ -1,3 +1,5 @@
+//top side logo animation thing hereee
+
 document.addEventListener("DOMContentLoaded", () => {
   const navbar = document.querySelector(".nav");
   const sideLogoImg = document.querySelector(".side-logo img");
@@ -46,7 +48,7 @@ burgerMenu.addEventListener("click", () => {
 
 
 
-// scroll animatin function
+// scroll animatin function for the sliding animation -- utility function hehehhe
 
 function animateOnScroll(element, animationClass, threshold = 0.5) {
   const observer = new IntersectionObserver((entries, observer) => {
@@ -74,13 +76,14 @@ animateOnScroll(visionMissionContent,"vision-mission-content-visible",0.001);
 const peosPhoto = document.querySelector(".peos-photo");
 animateOnScroll(peosPhoto,"animate-to-top",0.001);
 
+const poPhoto = document.querySelector(".po-photo");
+animateOnScroll(poPhoto,"animate-to-top",0.001);
 
+
+//cursor animation thing hereeee
 
 document.addEventListener("DOMContentLoaded", () => {
-  
-});
-
-if(window.innerWidth > 1080){
+  if(window.innerWidth > 1080){
     const title = document.querySelector(".department-name");
   const cursor = document.createElement("div");
 
@@ -111,38 +114,52 @@ if(window.innerWidth > 1080){
     cursor.style.top = y + "px";
   });
   }
+  
+});
 
 
 
 
-  const scrollableDiv = document.querySelector(".peos-content");
+//scrollable y axis div thing hereeeee
+
+function setupScrollableDiv(scrollableSelector) {
+  const scrollableDiv = document.querySelector(scrollableSelector);
+  if (!scrollableDiv) return;
+
   let isScrollingInside = false;
-  
-  function handleScrollPeos(event) {
+
+  function handleScroll(event) {
     if (!isScrollingInside) return;
-  
+
     const atTop = scrollableDiv.scrollTop === 0;
-    const atBottom = scrollableDiv.scrollTop + scrollableDiv.clientHeight >= scrollableDiv.scrollHeight;
-  
+    const atBottom =
+      scrollableDiv.scrollTop + scrollableDiv.clientHeight >= scrollableDiv.scrollHeight;
+
     if ((event.deltaY < 0 && atTop) || (event.deltaY > 0 && atBottom)) {
-      isScrollingInside = false; // Allow page scrolling when div is fully scrolled
+      isScrollingInside = false; // Unlocks page scrolling when div is fully scrolled
     } else {
       event.preventDefault();
       scrollableDiv.scrollTop += event.deltaY;
     }
   }
-  
-  // Intersection Observer: Detect when div is visible
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        isScrollingInside = true;
-      } else if (scrollableDiv.scrollTop === 0 || scrollableDiv.scrollTop + scrollableDiv.clientHeight >= scrollableDiv.scrollHeight) {
-        isScrollingInside = false;
-      }
-    });
-  }, { threshold: 1 });
-  
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          isScrollingInside = true;
+        }
+      });
+    },
+    { threshold: 1 }
+  );
+
   observer.observe(scrollableDiv);
-  window.addEventListener("wheel", handleScrollPeos, { passive: false });
-  
+  window.addEventListener("wheel", handleScroll, { passive: false });
+}
+
+
+
+setupScrollableDiv(".peos-content");
+setupScrollableDiv(".po-content");
+
