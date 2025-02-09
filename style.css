@@ -434,8 +434,7 @@ footer {
 
 
 .route-map-div{
-  position: relative;
-  top: -100px;
+  transform: translateY(-100px);
 }
 
 @media screen and (max-width: 820px) {
