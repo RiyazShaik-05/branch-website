@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const navbar = document.querySelector(".nav");
   const sideLogoImg = document.querySelector(".side-logo img");
   const sideLogoH3 = document.querySelector(".side-logo h3");
-  const handleScroll = () => {
+  const handleScrollNav = () => {
     if (window.scrollY > 300) {
       navbar.classList.add("after-scroll");
       sideLogoImg.style.borderRight = "1px solid black";
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  window.addEventListener("scroll", handleScroll);
+  window.addEventListener("scroll", handleScrollNav);
 });
 
 
@@ -71,6 +71,8 @@ const visionMissionContent = document.querySelector(".vision-mission-content");
 animateOnScroll(visionMissionContent,"vision-mission-content-visible",0.001);
 
 
+const peosPhoto = document.querySelector(".peos-photo");
+animateOnScroll(peosPhoto,"animate-to-top",0.001);
 
 
 
@@ -109,3 +111,38 @@ if(window.innerWidth > 1080){
     cursor.style.top = y + "px";
   });
   }
+
+
+
+
+  const scrollableDiv = document.querySelector(".peos-content");
+  let isScrollingInside = false;
+  
+  function handleScrollPeos(event) {
+    if (!isScrollingInside) return;
+  
+    const atTop = scrollableDiv.scrollTop === 0;
+    const atBottom = scrollableDiv.scrollTop + scrollableDiv.clientHeight >= scrollableDiv.scrollHeight;
+  
+    if ((event.deltaY < 0 && atTop) || (event.deltaY > 0 && atBottom)) {
+      isScrollingInside = false; // Allow page scrolling when div is fully scrolled
+    } else {
+      event.preventDefault();
+      scrollableDiv.scrollTop += event.deltaY;
+    }
+  }
+  
+  // Intersection Observer: Detect when div is visible
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        isScrollingInside = true;
+      } else if (scrollableDiv.scrollTop === 0 || scrollableDiv.scrollTop + scrollableDiv.clientHeight >= scrollableDiv.scrollHeight) {
+        isScrollingInside = false;
+      }
+    });
+  }, { threshold: 1 });
+  
+  observer.observe(scrollableDiv);
+  window.addEventListener("wheel", handleScrollPeos, { passive: false });
+  
