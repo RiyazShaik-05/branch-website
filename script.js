@@ -1,3 +1,5 @@
+import facultyData  from "./facultyData";
+
 //top side logo animation thing hereee
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -165,3 +167,4 @@ setupScrollableDiv(".po-content");
 
 const h1s = document.querySelectorAll("h1");
 h1s.forEach(h1 => animateOnScroll(h1,"scale-up",0.001));
+

@@ -30,6 +30,7 @@ h1{
 }
 
 .scale-up{
+  transform: translateY(0px);
   scale: 1;
 }
 
@@ -59,6 +60,10 @@ header .department-name {
 
 header .heading {
   width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 header .heading h5 {
@@ -322,7 +327,7 @@ nav {
   box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.3);
   position: relative;
   z-index: 1;
-  background-image: url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-image: url("./images/vision-mission.png");
   background-size: cover;
   transform: translateX(-30%);
   transition: transform 0.5s ease-in-out;
@@ -380,7 +385,7 @@ nav {
 
 .peos-photo {
   height: 450px;
-  background-image: url("https://plus.unsplash.com/premium_photo-1705010663785-4e8838166217?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-image: url("./images/goals.jpg");
   background-size: cover;
   transform: translateY(40%);
   transition: transform 0.5s ease-in-out;
@@ -412,6 +417,16 @@ nav {
   border-left: 2px solid red;
 }
 
+
+.po-photo{
+  background-image: url("./images/outcomes.jpeg");
+  background-size: cover;
+}
+
+
+.psos-content{
+  width: 100%;
+}
 /* footer */
 
 .above-footer {
@@ -458,16 +473,26 @@ nav {
 
 footer {
   height: fit-content;
-  background: linear-gradient(
+  /* background: linear-gradient(
     to top,
     rgba(235, 126, 110, 1) 80%,
     rgba(235, 126, 110, 0.988) 20%
-  );
+  ); */
+  background-color:rgb(216,116,100);
 }
 
 
 .route-map-div{
-  transform: translateY(-100px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-80px);
+}
+
+.route-map-div iframe{
+  width: 98%;
 }
 
 footer h5 a:hover{
@@ -480,9 +505,6 @@ footer h5 a:hover{
     min-height: 70px;
   }
 
-  header .heading {
-    width: 80%;
-  }
 
   .heading h1 {
     font-size: 45px;
@@ -496,6 +518,7 @@ footer h5 a:hover{
 
   .vision-mission-photo {
     width: 80%;
+
   }
 
   .vision-mission-content {
