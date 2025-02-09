@@ -30,7 +30,6 @@ h1{
 }
 
 .scale-up{
-  transform: translateY(0px);
   scale: 1;
 }
 
